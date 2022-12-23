@@ -1,0 +1,22 @@
+a, a:hover {
+    color: rgb(89, 89, 233);
+}
+
+.header .site-description nav ul svg {
+    max-height: 20px;
+}
+
+
+.post-tags .tags a {
+    border: 1px solid rgb(89, 89, 233);
+    color: rgb(89, 89, 233);
+}
+
+
+.highlight {
+    background-color: rgb(49, 49, 52);
+    border-radius: 5px;;
+}
+code {
+    font-family: Monaco, 'Courier New', Courier, monospace;
+}

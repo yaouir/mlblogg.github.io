@@ -1,0 +1,86 @@
+<!doctype html><html><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><title>How to test dark mode? - mlblogg</title><meta name=viewport content="width=device-width,initial-scale=1"><meta property="og:title" content="How to test dark mode?"><meta property="og:description" content="Here is how you can setup dark mode for Ezhil and test on various OS like iOS, Android, macOS and Windows 10."><meta property="og:type" content="article"><meta property="og:url" content="http://mlblogg.com/posts/post-7/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2018-03-18T12:13:38+05:30"><meta property="article:modified_time" content="2018-03-18T12:13:38+05:30"><meta name=twitter:card content="summary"><meta name=twitter:title content="How to test dark mode?"><meta name=twitter:description content="Here is how you can setup dark mode for Ezhil and test on various OS like iOS, Android, macOS and Windows 10."><link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel=stylesheet><link rel=stylesheet type=text/css media=screen href=http://mlblogg.com/css/normalize.css><link rel=stylesheet type=text/css media=screen href=http://mlblogg.com/css/main.css><link rel=stylesheet type=text/css href=http://mlblogg.com/css/custom.css><script src=https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js></script>
+<script src=http://mlblogg.com/js/main.js></script></head><body><div class="container wrapper post"><div class=header><base href=http://mlblogg.com/><h1 class=site-title><a href=http://mlblogg.com/>mlblogg</a></h1><div class=site-description><h2>A Data subject oriented blog using ( SQL, Python , R &mldr;. )</h2><nav class="nav social"><ul class=flat><a href=https://twitter.com/mlblogg title=Twitter><i data-feather=twitter></i></a><a href=https://github.com/mlblogg title=Github><i data-feather=github></i></a></ul></nav></div><nav class=nav><ul class=flat><li><a href=/>Home</a></li><li><a href=/posts>All posts</a></li><li><a href=/about>About</a></li><li><a href=/tags>Tags</a></li></ul></nav></div><div class=post-header><h1 class=title>How to test dark mode?</h1><div class=meta>Posted at &mdash; Mar 18, 2018</div></div><div class=markdown><p>You can set dark mode as default by setting <code>params.mode</code> to <code>dark</code> in <code>config.toml</code> or set it to <code>auto</code> which will detect based on your OS and switch to dark mode. For more details <a href=https://github.com/vividvilla/ezhil#configuration>refer documentation</a></p><p>Here is how you can switch based on your OS</p><ul><li><a href=https://www.howtogeek.com/440078/how-to-enable-dark-mode-on-your-iphone-and-ipad/>iOS</a></li><li><a href=https://9to5google.com/2018/12/17/android-dark-mode-theme-pie/>Android</a></li><li><a href=https://support.apple.com/en-in/HT208976>macOS</a></li><li><a href=https://www.cnet.com/how-to/turn-on-the-dark-mode-in-windows-10/>Windows 10</a></li></ul><script async type=application/javascript src=https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js>var config={startOnLoad:!0,theme:"neutral",align:"left"};mermaid.initialize(config)</script><div class=mermaid>flowchart TB
+y("You") --> s{Subscribed to navendu.me?}
+s --> |Yes| a("You are awesome!")
+s --> |No| su[/"Subscribe to navendu.me"/] --> a
+click su href "/subscribe" _blank</div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span><span style=color:#6272a4># Example of making predictions</span>
+</span></span><span style=display:flex><span><span style=color:#ff79c6>from</span> math <span style=color:#ff79c6>import</span> sqrt
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#6272a4># calculate the Euclidean distance between two vectors</span>
+</span></span><span style=display:flex><span><span style=color:#ff79c6>def</span> <span style=color:#50fa7b>euclidean_distance</span>(row1, row2):
+</span></span><span style=display:flex><span>	distance <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0.0</span>
+</span></span><span style=display:flex><span>	<span style=color:#ff79c6>for</span> i <span style=color:#ff79c6>in</span> <span style=color:#8be9fd;font-style:italic>range</span>(<span style=color:#8be9fd;font-style:italic>len</span>(row1)<span style=color:#ff79c6>-</span><span style=color:#bd93f9>1</span>):
+</span></span><span style=display:flex><span>		distance <span style=color:#ff79c6>+=</span> (row1[i] <span style=color:#ff79c6>-</span> row2[i])<span style=color:#ff79c6>**</span><span style=color:#bd93f9>2</span>
+</span></span><span style=display:flex><span>	<span style=color:#ff79c6>return</span> sqrt(distance)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#6272a4># Locate the most similar neighbors</span>
+</span></span><span style=display:flex><span><span style=color:#ff79c6>def</span> <span style=color:#50fa7b>get_neighbors</span>(train, test_row, num_neighbors):
+</span></span><span style=display:flex><span>	distances <span style=color:#ff79c6>=</span> <span style=color:#8be9fd;font-style:italic>list</span>()
+</span></span><span style=display:flex><span>	<span style=color:#ff79c6>for</span> train_row <span style=color:#ff79c6>in</span> train:
+</span></span><span style=display:flex><span>		dist <span style=color:#ff79c6>=</span> euclidean_distance(test_row, train_row)
+</span></span><span style=display:flex><span>		distances<span style=color:#ff79c6>.</span>append((train_row, dist))
+</span></span><span style=display:flex><span>	distances<span style=color:#ff79c6>.</span>sort(key<span style=color:#ff79c6>=</span><span style=color:#ff79c6>lambda</span> tup: tup[<span style=color:#bd93f9>1</span>])
+</span></span><span style=display:flex><span>	neighbors <span style=color:#ff79c6>=</span> <span style=color:#8be9fd;font-style:italic>list</span>()
+</span></span><span style=display:flex><span>	<span style=color:#ff79c6>for</span> i <span style=color:#ff79c6>in</span> <span style=color:#8be9fd;font-style:italic>range</span>(num_neighbors):
+</span></span><span style=display:flex><span>		neighbors<span style=color:#ff79c6>.</span>append(distances[i][<span style=color:#bd93f9>0</span>])
+</span></span><span style=display:flex><span>	<span style=color:#ff79c6>return</span> neighbors
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#6272a4># Make a classification prediction with neighbors</span>
+</span></span><span style=display:flex><span><span style=color:#ff79c6>def</span> <span style=color:#50fa7b>predict_classification</span>(train, test_row, num_neighbors):
+</span></span><span style=display:flex><span>	neighbors <span style=color:#ff79c6>=</span> get_neighbors(train, test_row, num_neighbors)
+</span></span><span style=display:flex><span>	output_values <span style=color:#ff79c6>=</span> [row[<span style=color:#ff79c6>-</span><span style=color:#bd93f9>1</span>] <span style=color:#ff79c6>for</span> row <span style=color:#ff79c6>in</span> neighbors]
+</span></span><span style=display:flex><span>	prediction <span style=color:#ff79c6>=</span> <span style=color:#8be9fd;font-style:italic>max</span>(<span style=color:#8be9fd;font-style:italic>set</span>(output_values), key<span style=color:#ff79c6>=</span>output_values<span style=color:#ff79c6>.</span>count)
+</span></span><span style=display:flex><span>	<span style=color:#ff79c6>return</span> prediction
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#6272a4># Test distance function</span>
+</span></span><span style=display:flex><span>dataset <span style=color:#ff79c6>=</span> [[<span style=color:#bd93f9>2.7810836</span>,<span style=color:#bd93f9>2.550537003</span>,<span style=color:#bd93f9>0</span>],
+</span></span><span style=display:flex><span>	[<span style=color:#bd93f9>1.465489372</span>,<span style=color:#bd93f9>2.362125076</span>,<span style=color:#bd93f9>0</span>],
+</span></span><span style=display:flex><span>	[<span style=color:#bd93f9>3.396561688</span>,<span style=color:#bd93f9>4.400293529</span>,<span style=color:#bd93f9>0</span>],
+</span></span><span style=display:flex><span>	[<span style=color:#bd93f9>1.38807019</span>,<span style=color:#bd93f9>1.850220317</span>,<span style=color:#bd93f9>0</span>],
+</span></span><span style=display:flex><span>	[<span style=color:#bd93f9>3.06407232</span>,<span style=color:#bd93f9>3.005305973</span>,<span style=color:#bd93f9>0</span>],
+</span></span><span style=display:flex><span>	[<span style=color:#bd93f9>7.627531214</span>,<span style=color:#bd93f9>2.759262235</span>,<span style=color:#bd93f9>1</span>],
+</span></span><span style=display:flex><span>	[<span style=color:#bd93f9>5.332441248</span>,<span style=color:#bd93f9>2.088626775</span>,<span style=color:#bd93f9>1</span>],
+</span></span><span style=display:flex><span>	[<span style=color:#bd93f9>6.922596716</span>,<span style=color:#bd93f9>1.77106367</span>,<span style=color:#bd93f9>1</span>],
+</span></span><span style=display:flex><span>	[<span style=color:#bd93f9>8.675418651</span>,<span style=color:#ff79c6>-</span><span style=color:#bd93f9>0.242068655</span>,<span style=color:#bd93f9>1</span>],
+</span></span><span style=display:flex><span>	[<span style=color:#bd93f9>7.673756466</span>,<span style=color:#bd93f9>3.508563011</span>,<span style=color:#bd93f9>1</span>]]
+</span></span><span style=display:flex><span>prediction <span style=color:#ff79c6>=</span> predict_classification(dataset, dataset[<span style=color:#bd93f9>0</span>], <span style=color:#bd93f9>3</span>)
+</span></span><span style=display:flex><span><span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>&#39;Expected </span><span style=color:#f1fa8c>%d</span><span style=color:#f1fa8c>, Got </span><span style=color:#f1fa8c>%d</span><span style=color:#f1fa8c>.&#39;</span> <span style=color:#ff79c6>%</span> (dataset[<span style=color:#bd93f9>0</span>][<span style=color:#ff79c6>-</span><span style=color:#bd93f9>1</span>], prediction))
+</span></span></code></pre></div><p>SQL</p><hr><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-SQL data-lang=SQL><span style=display:flex><span><span style=color:#ff79c6>CREATE</span> <span style=color:#ff79c6>TABLE</span> time
+</span></span><span style=display:flex><span>(
+</span></span><span style=display:flex><span>time_code     <span style=color:#8be9fd;font-style:italic>INT</span>,
+</span></span><span style=display:flex><span>order_date    <span style=color:#8be9fd;font-style:italic>DATE</span>,
+</span></span><span style=display:flex><span>month_code    <span style=color:#8be9fd;font-style:italic>SMALLINT</span>,
+</span></span><span style=display:flex><span>month_name    <span style=color:#8be9fd;font-style:italic>CHAR</span>(<span style=color:#bd93f9>10</span>),
+</span></span><span style=display:flex><span>quarter_code  <span style=color:#8be9fd;font-style:italic>SMALLINT</span>,
+</span></span><span style=display:flex><span>quarter_name  <span style=color:#8be9fd;font-style:italic>CHAR</span>(<span style=color:#bd93f9>10</span>),
+</span></span><span style=display:flex><span><span style=color:#ff79c6>year</span> <span style=color:#8be9fd;font-style:italic>INTEGER</span>
+</span></span><span style=display:flex><span>);
+</span></span></code></pre></div><hr><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff79c6>CREATE</span> <span style=color:#ff79c6>TABLE</span> geography 
+</span></span><span style=display:flex><span>(
+</span></span><span style=display:flex><span>district_code  <span style=color:#8be9fd;font-style:italic>SERIAL</span>,
+</span></span><span style=display:flex><span>district_name  <span style=color:#8be9fd;font-style:italic>CHAR</span>(<span style=color:#bd93f9>15</span>),
+</span></span><span style=display:flex><span>state_code     <span style=color:#8be9fd;font-style:italic>CHAR</span>(<span style=color:#bd93f9>2</span>),
+</span></span><span style=display:flex><span>state_name     <span style=color:#8be9fd;font-style:italic>CHAR</span>(<span style=color:#bd93f9>18</span>),
+</span></span><span style=display:flex><span>region         <span style=color:#8be9fd;font-style:italic>SMALLINT</span>
+</span></span><span style=display:flex><span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff79c6>CREATE</span> <span style=color:#ff79c6>TABLE</span> product (
+</span></span><span style=display:flex><span>product_code   <span style=color:#8be9fd;font-style:italic>INTEGER</span>,
+</span></span><span style=display:flex><span>product_name   <span style=color:#8be9fd;font-style:italic>CHAR</span>(<span style=color:#bd93f9>31</span>),
+</span></span><span style=display:flex><span>vendor_code    <span style=color:#8be9fd;font-style:italic>CHAR</span>(<span style=color:#bd93f9>3</span>),
+</span></span><span style=display:flex><span>vendor_name    <span style=color:#8be9fd;font-style:italic>CHAR</span>(<span style=color:#bd93f9>15</span>),
+</span></span><span style=display:flex><span>product_line_code  <span style=color:#8be9fd;font-style:italic>SMALLINT</span>,
+</span></span><span style=display:flex><span>product_line_name  <span style=color:#8be9fd;font-style:italic>CHAR</span>(<span style=color:#bd93f9>15</span>)
+</span></span><span style=display:flex><span>);
+</span></span></code></pre></div><hr><p>R script</p><hr><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-R data-lang=R><span style=display:flex><span><span style=color:#50fa7b>library</span>(dplyr)
+</span></span><span style=display:flex><span><span style=color:#50fa7b>library</span>(nycflights13)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>not_cancelled <span style=color:#ff79c6>&lt;-</span> flights <span style=color:#ff79c6>%&gt;%</span> 
+</span></span><span style=display:flex><span>  <span style=color:#50fa7b>filter</span>(<span style=color:#ff79c6>!</span><span style=color:#50fa7b>is.na</span>(dep_delay)█, <span style=color:#ff79c6>!</span><span style=color:#50fa7b>is.na</span>(arr_delay))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>not_cancelled <span style=color:#ff79c6>%&gt;%</span> 
+</span></span><span style=display:flex><span>  <span style=color:#50fa7b>group_by</span>(year, month, day) <span style=color:#ff79c6>%&gt;%</span> 
+</span></span><span style=display:flex><span>  <span style=color:#50fa7b>summarise</span>(mean <span style=color:#ff79c6>=</span> <span style=color:#50fa7b>mean</span>(dep_delay))
+</span></span></code></pre></div></div><div class=post-tags></div></div><div class="footer wrapper"><nav class=nav><div>mlblogg | Built with <a href=https://gohugo.io>Hugo</a> <a href=https://github.com/vividvilla/ezhil>Ezhil theme</a></div></nav></div><script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-123-45","auto"),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script>
+<script>feather.replace()</script></body></html>
