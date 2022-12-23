@@ -1,4 +1,4 @@
-baseURL = "http://mlblogg.com/"
+baseURL = "https://mlblogg.com/"
 languageCode = "en-us"
 title = "mlblogg"
 paginate = 6
