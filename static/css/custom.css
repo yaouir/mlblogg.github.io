@@ -20,3 +20,12 @@ a, a:hover {
 code {
     font-family: Monaco, 'Courier New', Courier, monospace;
 }
+
+.mermaid {
+    display: flex !important; justify-content: center
+}
+
+
+table {
+    margin: 0 auto ;
+}
